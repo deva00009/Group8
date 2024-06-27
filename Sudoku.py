@@ -82,3 +82,33 @@ def solvegame(defaultgrid, i, j):
         elif i == 8 and j == 8:
             return True
     pygame.event.pump()
+    for it in range(1, 10):
+        if validvalue(defaultgrid, i, j, it)== True:
+            defaultgrid[i][j]= it
+            global x, z
+            x = i
+            z = j
+            Window.fill((255, 255, 255))
+            drawlines()
+            highlightbox()
+            pygame.display.update()
+            pygame.time.delay(20)
+            if solvegame(defaultgrid, i, j)== 1:
+                return True
+            else:
+                defaultgrid[i][j]= 0
+            Window.fill((0,0,0))
+
+            drawlines()
+            highlightbox()
+            pygame.display.update()
+            pygame.time.delay(50)
+    return False
+def gameresult():
+    text1 = font.render("game finished", 1, (0, 0, 0))
+    Window.blit(text1, (20, 570)) 
+flag=True  
+flag1 = 0
+flag2 = 0
+rs = 0
+error = 0
