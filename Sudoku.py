@@ -169,3 +169,44 @@ while flag:
                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0]
                 ]
+            if event.key == pygame.K_d:
+                rs = 0
+                error = 0
+                flag2 = 0
+                defaultgrid  =[
+                    [0, 0, 4, 0, 6, 0, 0, 0, 5],
+                    [7, 8, 0, 4, 0, 0, 0, 2, 0],
+                    [0, 0, 2, 6, 0, 1, 0, 7, 8],
+                    [6, 1, 0, 0, 7, 5, 0, 0, 9],
+                    [0, 0, 7, 5, 4, 0, 0, 6, 1],
+                    [0, 0, 1, 7, 5, 0, 9, 3, 0],
+                    [0, 7, 0, 3, 0, 0, 0, 1, 0],
+                    [0, 4, 0, 2, 0, 6, 0, 0, 7],
+                    [0, 2, 0, 0, 0, 7, 4, 0, 0],
+                ]
+    if flag2 == 1:
+        if solvegame(defaultgrid , 0, 0)== False:
+            error = 1
+        else:
+            rs = 1
+        flag2 = 0   
+    if value != 0:           
+        fillvalue(value)
+        if validvalue(defaultgrid , int(x), int(z), value)== True:
+            defaultgrid[int(x)][int(z)]= value
+            flag1 = 0
+        else:
+            defaultgrid[int(x)][int(z)]= 0
+            raiseerror1()  
+        value = 0   
+       
+    if error == 1:
+        raiseerror() 
+    if rs == 1:
+        gameresult()       
+    drawlines() 
+    if flag1 == 1:
+        highlightbox()      
+    pygame.display.update() 
+   
+pygame.quit()
