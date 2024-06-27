@@ -58,3 +58,27 @@ def raiseerror():
 def raiseerror1():
     text1 = font.render("wrong ! enter a valid key for the game", 1, (0, 0, 0))
     Window.blit(text1, (20, 570)) 
+def validvalue(m, k, l, value):
+    for it in range(9):
+        if m[k][it]== value:
+            return False
+        if m[it][l]== value:
+            return False
+    it = k//3
+    jt = l//3
+    for k in range(it * 3, it * 3 + 3):
+        for l in range (jt * 3, jt * 3 + 3):
+            if m[k][l]== value:
+                return False
+    return True
+def solvegame(defaultgrid, i, j):
+
+    while defaultgrid[i][j]!= 0:
+        if i<8:
+            i+= 1
+        elif i == 8 and j<8:
+            i = 0
+            j+= 1
+        elif i == 8 and j == 8:
+            return True
+    pygame.event.pump()
