@@ -112,3 +112,60 @@ flag1 = 0
 flag2 = 0
 rs = 0
 error = 0
+while flag:
+    Window.fill((255,182,193))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            flag = False   
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            flag1 = 1
+            pos = pygame.mouse.get_pos()
+            cord(pos)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                x-= 1
+                flag1 = 1
+            if event.key == pygame.K_RIGHT:
+                x+= 1
+                flag1 = 1
+            if event.key == pygame.K_UP:
+                y-= 1
+                flag1 = 1
+            if event.key == pygame.K_DOWN:
+                y+= 1
+                flag1 = 1   
+            if event.key == pygame.K_1:
+                value = 1
+            if event.key == pygame.K_2:
+                value = 2   
+            if event.key == pygame.K_3:
+                value = 3
+            if event.key == pygame.K_4:
+                value = 4
+            if event.key == pygame.K_5:
+                value = 5
+            if event.key == pygame.K_6:
+                value = 6
+            if event.key == pygame.K_7:
+                value = 7
+            if event.key == pygame.K_8:
+                value = 8
+            if event.key == pygame.K_9:
+                value = 9 
+            if event.key == pygame.K_RETURN:
+                flag2 = 1  
+            if event.key == pygame.K_r:
+                rs = 0
+                error = 0
+                flag2 = 0
+                defaultgrid=[
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                ]
